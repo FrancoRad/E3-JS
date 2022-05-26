@@ -53,18 +53,33 @@ const pizzas = [
 ];
 h1.textContent = "Elija las pizzas del 1 al " + pizzas.length
 const getValueInput = () =>{
-  const inputValue = document.getElementById("numero").value
+  var inputValue = document.getElementById("numero").value
+  console.log(inputValue);
+  console.log("");
   pizzas.map(dato => {
-    const {id, nombre, ingredientes, precio} = dato
-    if (dato.id == inputValue) {
+    var {id, nombre, ingredientes, precio} = dato
+    if (id == inputValue) {
       p.textContent = "N° ingresado: " + id
       h2.textContent = "Nombre: " + nombre
       h4.textContent = "Precio: " + precio
     }else{
-      if(inputValue <= 0 || inputValue> pizzas.length){ 
-      p.textContent = "N° ingresado: " + id
+      if(inputValue> pizzas.length){
+        console.log(inputValue); 
+      /*p.textContent = ""
       h2.textContent = "No existe la pizza seleccionada"
-      h4.textContent = ""
+      h4.textContent = ""*/
+      inputValue = id
+      inputValue = pizzas.length
+      p.textContent = "N° ingresado: " + id
+      h2.textContent = "Nombre: " + nombre
+      h4.textContent = "Precio: " + precio
+      console.log(inputValue); 
+      }else{
+        if (inputValue == 0) {
+          p.textContent = ""
+          h2.textContent = "No existe la pizza seleccionada"
+          h4.textContent = "Por favor ingrese un valor"
+        }
       }
     } 
   })
